@@ -44,9 +44,9 @@ async def fetch_chat_completion(messages: List[Message]):
     for event in client.events():
         try:
             print(event.data)
-            yield 'data: ' + event.data + '\n\n'
+            yield f'data: {event.data}' + '\n\n'
         except Exception as e:
-            print("OpenAI Response (Streaming) Error: " + str(e))
+            print(f"OpenAI Response (Streaming) Error: {str(e)}")
 
 
 @app.exception_handler(RequestValidationError)
